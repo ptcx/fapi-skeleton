@@ -4,8 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d6b730de51ec8a1f81ea32c4100aa9b0",
+    "content-hash": "7ffbcaf00b58a546016b236f60fd70b9",
     "packages": [
+        {
+            "name": "chrisboulton/php-resque",
+            "version": "1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chrisboulton/php-resque.git",
+                "reference": "0549d6c88a4aed934655b7c03b6153349d6c3ad0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/chrisboulton/php-resque/0549d6c88a4aed934655b7c03b6153349d6c3ad0.zip",
+                "reference": "0549d6c88a4aed934655b7c03b6153349d6c3ad0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Resque": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Boulton",
+                    "email": "chris@bigcommerce.com"
+                }
+            ],
+            "description": "Redis backed library for creating background jobs and processing them later. Based on resque for Ruby.",
+            "homepage": "http://www.github.com/chrisboulton/php-resque/",
+            "keywords": [
+                "background",
+                "job",
+                "redis",
+                "resque"
+            ],
+            "time": "2012-10-13T07:28:16+00:00"
+        },
         {
             "name": "container-interop/container-interop",
             "version": "1.2.0",
@@ -772,16 +815,16 @@
         },
         {
             "name": "respect/validation",
-            "version": "1.1.11",
+            "version": "1.1.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Respect/Validation.git",
-                "reference": "03f4abbd08149fb1b803a6a7d767dd3f925ce1d1"
+                "reference": "5ab87d1dd932872f6670136a513f72ff9ea41c67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/Respect/Validation/03f4abbd08149fb1b803a6a7d767dd3f925ce1d1.zip",
-                "reference": "03f4abbd08149fb1b803a6a7d767dd3f925ce1d1",
+                "url": "https://files.phpcomposer.com/files/Respect/Validation/5ab87d1dd932872f6670136a513f72ff9ea41c67.zip",
+                "reference": "5ab87d1dd932872f6670136a513f72ff9ea41c67",
                 "shasum": ""
             },
             "require": {
@@ -833,7 +876,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2017-01-26T14:39:48+00:00"
+            "time": "2017-03-14T09:44:11+00:00"
         },
         {
             "name": "slim/slim",

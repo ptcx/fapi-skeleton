@@ -5,7 +5,8 @@
         "predis/predis": "^1.1",
         "monolog/monolog": "^1.22",
         "respect/validation": "^1.1",
-        "slim/twig-view": "^2.2"
+        "slim/twig-view": "^2.2",
+        "chrisboulton/php-resque": "1.2.x"
     },
     "autoload": {
         "psr-4": {"App\\": "app/"}
