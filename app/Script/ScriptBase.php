@@ -20,8 +20,8 @@ abstract class ScriptBase
 
     /**
      * 主逻辑
-     * @param array $param
+     * @param array $params
      * @return mixed
      */
-    abstract public function run($param);
+    abstract public function run($params);
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Script\Normal;
+namespace App\Script\App;
 
 use App\Script\ScriptBase;
 
@@ -11,8 +11,8 @@ class Test extends ScriptBase
         parent::__construct();
     }
 
-    public function run($param)
+    public function run($params)
     {
-        var_dump($param); echo "\n";
+        var_dump($params); echo "\n";
     }
 }

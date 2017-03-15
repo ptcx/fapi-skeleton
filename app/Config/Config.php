@@ -77,6 +77,7 @@ class Config
             'db' => DBConfig::getConfig(),
             'redis' => RedisConfig::getConfig(),
             'view' => TwigViewConfig::getConfig(),
+            'resque' => ResqueConfig::getConfig(),
         ];
     }
 
@@ -98,6 +99,7 @@ class Config
             'db' => DBConfig::getConfig(),
             'redis' => RedisConfig::getConfig(),
             'view' => TwigViewConfig::getConfig(),
+            'resque' => ResqueConfig::getConfig(),
         ];
     }
 
