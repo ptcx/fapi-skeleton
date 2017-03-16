@@ -11,4 +11,6 @@ $app->group('/hello', function () {
 
     $this->get('/api', 'App\Http\Controllers\HelloController:helloApi')
         ->add(new CorsMiddleware(['*'], ['GET']));
+
+    $this->get('/job', 'App\Http\Controllers\HelloController:helloJob');
 });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Interop\Container\ContainerInterface;
+use App\Job\TestJob;
 
 class HelloController extends Controller
 {
@@ -50,5 +51,27 @@ class HelloController extends Controller
             'status' => 0,
             'message' => 'ok'
         ], 200);
+    }
+
+    /**
+     * hello job test
+     *
+     * @param  \Slim\Http\Request    $request  PSR7 request
+     * @param  \Slim\Http\Response   $response PSR7 response
+     * @param  array                 $args
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function helloJob($request, $response, $args)
+    {
+        $settings = $this->ci->get('settings');
+        $redisServer = $settings['resque']['server'];
+        $result = (new TestJob())
+            ->initResque($redisServer)
+            ->onQueue('test')
+            ->push(['foo' => 'bar']);
+        return $this->ci->get('view')->render($response, 'hello.twig', [
+            'hello' => $result,
+        ]);
     }
 }
