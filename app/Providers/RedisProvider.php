@@ -16,12 +16,12 @@ class RedisProvider extends Provider
     public function register(Container $container)
     {
         $container['redis'] = function ($container) {
-            $redisConfig = $container['settings']['redis'];
+            $config = $container['settings']['redis'];
 
             $client = new Client([
-                'scheme' => $redisConfig['scheme'],
-                'host' => $redisConfig['host'],
-                'port' => $redisConfig['port'],
+                'scheme' => $config['scheme'],
+                'host' => $config['host'],
+                'port' => $config['port'],
             ]);
 
             return $client;

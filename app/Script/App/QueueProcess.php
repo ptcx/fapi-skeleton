@@ -3,7 +3,7 @@
  * 处理消息队列
  * 参照php-resque中resque.php
  * 必须参数: queue
- * 可选参数：verbose  vverbose  interval  count
+ * 可选参数：verbose  vverbose  interval
  */
 namespace App\Script\App;
 
@@ -21,22 +21,17 @@ class QueueProcess extends ScriptBase
     public function run($params)
     {
         $this->checkParams($params);
+
         $container = $this->app->getContainer();
         $resqueConfig = $container['settings']['resque'];
-        \Resque::setBackend($resqueConfig['server']);
-        if ($this->params['count'] > 1) {
-            for($i = 0; $i < $this->params['count']; ++$i) {
-                $pid = pcntl_fork();
-                if($pid == -1) {
-                    die("Could not fork worker ".$i."\n");
-                } else if(!$pid) {
-                    $this->startWorker();
-                    break;
-                }
-            }
-        } else {
-            $this->startWorker();
+
+        $database = isset($resqueConfig['password']) ? (int)$resqueConfig['password'] : 0;
+        \Resque::setBackend($resqueConfig['server'], $database);
+        if (isset($resqueConfig['password']) && !empty($resqueConfig['password'])) {
+            \Resque::redis()->auth($resqueConfig['password']);
         }
+
+        $this->startWorker();
     }
 
     private function checkParams($params)
@@ -57,13 +52,7 @@ class QueueProcess extends ScriptBase
         }
         $this->params['log_level'] = $logLevel;
         // interval参数    处理时间间隔多少秒
-        $this->params['interval'] = $params['interval'] ?? 5;
-        // count参数    启动多少个进程
-        $count = 1;
-        if (isset($params['count']) && ((int)$params['count']) > 1) {
-            $count = (int)$params['count'];
-        }
-        $this->params['count'] = $count;
+        $this->params['interval'] = isset($params['interval']) ? (int)$params['interval'] : 5;
     }
 
     private function startWorker()

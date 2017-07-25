@@ -7,8 +7,6 @@ use App\Http\Middleware\CorsMiddleware;
 
 $app->group('/hello', function () {
 
-    $this->get('', 'App\Http\Controllers\HelloController:helloPage');
-
     $this->get('/api', 'App\Http\Controllers\HelloController:helloApi')
         ->add(new CorsMiddleware(['*'], ['GET']));
 

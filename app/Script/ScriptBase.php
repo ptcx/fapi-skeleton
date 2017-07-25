@@ -4,7 +4,7 @@
  */
 namespace App\Script;
 
-use App\Boot\InitApp;
+use App\Boot\Initializer;
 
 abstract class ScriptBase
 {
@@ -15,7 +15,15 @@ abstract class ScriptBase
      */
     public function __construct()
     {
-        $this->app = InitApp::getApp();
+        $initializer = new Initializer();
+
+        $app = $initializer->getApp();
+
+        $initializer->prepareService($app);
+
+        $initializer->prepareRoute($app);
+
+        $this->app = $app;
     }
 
     /**

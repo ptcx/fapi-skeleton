@@ -2,7 +2,14 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use App\Boot\InitApp;
+use App\Boot\Initializer;
 
-$app = InitApp::getApp();
+$initializer = new Initializer();
+
+$app = $initializer->getApp();
+
+$initializer->prepareService($app);
+
+$initializer->prepareRoute($app);
+
 $app->run();

@@ -20,23 +20,6 @@ class HelloController extends Controller
     }
 
     /**
-     * hello page
-     *
-     * @param  \Slim\Http\Request    $request  PSR7 request
-     * @param  \Slim\Http\Response   $response PSR7 response
-     * @param  array                 $args
-     *
-     * @return \Psr\Http\Message\ResponseInterface
-     */
-    public function helloPage($request, $response, $args)
-    {
-        $hello = $this->helloService->getHello();
-        return $this->ci->get('view')->render($response, 'hello.twig', [
-            'hello' => $hello,
-        ]);
-    }
-
-    /**
      * hello api
      *
      * @param  \Slim\Http\Request    $request  PSR7 request
@@ -49,7 +32,8 @@ class HelloController extends Controller
     {
         return $response->withJson([
             'status' => 0,
-            'message' => 'ok'
+            'message' => 'ok',
+            'body' => $this->helloService->getHello(),
         ], 200);
     }
 
@@ -64,14 +48,12 @@ class HelloController extends Controller
      */
     public function helloJob($request, $response, $args)
     {
-        $settings = $this->ci->get('settings');
-        $redisServer = $settings['resque']['server'];
-        $result = (new TestJob())
-            ->initResque($redisServer)
-            ->onQueue('test')
-            ->push(['foo' => 'bar']);
-        return $this->ci->get('view')->render($response, 'hello.twig', [
-            'hello' => $result,
-        ]);
+        $resqueService = $this->ci->get('resque');
+        $result = $resqueService->push('test', TestJob::class, ['foo' => 'bar']);
+        return $response->withJson([
+            'status' => 0,
+            'message' => 'ok',
+            'body' => $result,
+        ], 200);
     }
 }
