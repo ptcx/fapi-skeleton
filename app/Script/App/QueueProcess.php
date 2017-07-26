@@ -25,7 +25,7 @@ class QueueProcess extends ScriptBase
         $container = $this->app->getContainer();
         $resqueConfig = $container['settings']['resque'];
 
-        $database = isset($resqueConfig['password']) ? (int)$resqueConfig['password'] : 0;
+        $database = isset($resqueConfig['database']) ? (int)$resqueConfig['database'] : 0;
         \Resque::setBackend($resqueConfig['server'], $database);
         if (isset($resqueConfig['password']) && !empty($resqueConfig['password'])) {
             \Resque::redis()->auth($resqueConfig['password']);

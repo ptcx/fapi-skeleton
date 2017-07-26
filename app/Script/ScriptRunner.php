@@ -1,7 +1,7 @@
 <?php
 /**
  * 用此类来运行脚本
- * eg. php ScriptRunner.php Normal/Test argv1 argv2
+ * eg. php ScriptRunner.php App/Test argv1 argv2
  */
 namespace App\Script;
 
