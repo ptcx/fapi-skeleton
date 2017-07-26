@@ -1,3 +1,7 @@
+composer.lock
 vendor/
-app/storage
 .idea/
+/logs/*
+!/logs/README.md
+/cache/*
+!/cache/README.md

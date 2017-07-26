@@ -3,6 +3,7 @@
 namespace App\Config;
 
 use App\Providers\AppServiceProvider;
+use App\Providers\LogProvider;
 use App\Providers\PDOProvider;
 use App\Providers\RedisProvider;
 use App\Providers\ResqueProvider;
@@ -21,6 +22,7 @@ class ProvidersConfig
             RedisProvider::class,
             ResqueProvider::class,
             PDOProvider::class,
+            LogProvider::class,
         ];
     }
 

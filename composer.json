@@ -1,5 +1,14 @@
 {
+    "name": "ptcx/slim-project",
+    "description": "A web development skeleton based on Slim Framework",
+    "authors": [
+        {
+            "name": "ptcx",
+            "email": "pengtianchen1031@gmail.com"
+        }
+    ],
     "require": {
+        "php": ">=5.6.0",
         "slim/slim": "^3.0",
         "predis/predis": "^1.1",
         "monolog/monolog": "^1.23",

@@ -20,6 +20,6 @@ Predis: <https://github.com/nrk/predis>
 monolog: <https://github.com/Seldaek/monolog>
 
 
-## message queue
+## MQ
 
 php-resque: <https://github.com/chrisboulton/php-resque>

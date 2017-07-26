@@ -1,6 +1,6 @@
 <?php
 /**
- * Predis 服务
+ * database pdo 服务
  */
 namespace App\Providers;
 

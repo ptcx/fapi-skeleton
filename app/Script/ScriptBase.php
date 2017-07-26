@@ -11,7 +11,7 @@ abstract class ScriptBase
     protected $app;
 
     /**
-     * ScriptBase constructor. 加载app实例
+     * ScriptBase constructor. 加载app实例，以便获取服务和配置
      */
     public function __construct()
     {
@@ -28,7 +28,7 @@ abstract class ScriptBase
 
     /**
      * 主逻辑
-     * @param array $params
+     * @param array $params 命令行参数
      * @return mixed
      */
     abstract public function run($params);

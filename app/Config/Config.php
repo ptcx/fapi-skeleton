@@ -7,8 +7,9 @@ class Config
     /**
      * @var string app根目录
      */
-    const APP_BASE_PATH = __DIR__ . '/../';
-    const CONF_FILE = self::APP_BASE_PATH . 'conf.php';
+    const APP_BASE_PATH = __DIR__ . '/..';
+    const PROJECT_BASE_PATH = self::APP_BASE_PATH . '/..';
+    const CONF_FILE = self::APP_BASE_PATH . '/conf.php';
     const APCU_KEY = 'app_conf_php';
 
     const DEVELOPMENT = 1;
@@ -68,18 +69,29 @@ class Config
     }
 
     /**
-     * 从conf.php中获取配置，线上环境缓存apcu
+     * 从conf.php中获取配置，线上环境缓存apcu，修改文件后自动更新
      */
     private function getLocalConf()
     {
-        $conf = apcu_fetch(self::APCU_KEY);
-        if ($conf !== false) {
-            $this->conf = $conf;
+        $fp = fopen(self::CONF_FILE, 'r');
+        $fstat = fstat($fp);
+        fclose($fp);
+        $mtime = $fstat['mtime'];
+
+        $confInfo = apcu_fetch(self::APCU_KEY);
+        if ($confInfo !== false && $confInfo['mtime'] >= $mtime) {
+            $this->conf = $confInfo['conf'];
             return;
         }
+
         $this->conf = require self::CONF_FILE;
+
         if ($this->conf['environ'] == self::PRODUCTION) {
-            apcu_store(self::APCU_KEY, $this->conf);
+            $confInfo = [
+                'mtime' => $mtime,
+                'conf' => $this->conf,
+            ];
+            apcu_store(self::APCU_KEY, $confInfo);
         }
     }
 }

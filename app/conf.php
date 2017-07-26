@@ -7,6 +7,12 @@ return [
         'displayErrorDetails' => true,
     ],
 
+    'appLog' => [
+        'name' => 'appLog',
+        'file' => \App\Config\Config::PROJECT_BASE_PATH . '/logs/app.log',
+        'minimumLevel' => \Monolog\Logger::DEBUG,
+    ],
+
     'db' => [
         'driver' => 'mysql',
         'host' => 'localhost',

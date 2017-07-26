@@ -37,7 +37,7 @@ class Initializer
      */
     public function prepareRoute($app)
     {
-        $routeDir = Config::APP_BASE_PATH . 'routes/';
+        $routeDir = Config::APP_BASE_PATH . '/routes/';
         $routeFiles = glob($routeDir . '*.php');
 
         self::addAppMiddleware($app);

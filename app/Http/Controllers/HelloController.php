@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Interop\Container\ContainerInterface;
 use App\Job\TestJob;
+use Monolog\Logger;
 
 class HelloController extends Controller
 {
 
     /**
-     * @var \App\Http\Service\HelloService $helloService
+     * @var \App\Http\Service\HelloService
      */
     private $helloService;
 
@@ -30,6 +31,9 @@ class HelloController extends Controller
      */
     public function helloApi($request, $response, $args)
     {
+        $logger = $this->ci->get('appLog');
+        $logger->info('new request');
+
         return $response->withJson([
             'status' => 0,
             'message' => 'ok',
