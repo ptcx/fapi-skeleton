@@ -1,6 +1,6 @@
 {
-    "name": "ptcx/slim-project",
-    "description": "A web development skeleton based on Slim Framework",
+    "name": "ptcx/fapi-skeleton",
+    "description": "A php skeleton for api backend development based on Slim Framework",
     "authors": [
         {
             "name": "ptcx",

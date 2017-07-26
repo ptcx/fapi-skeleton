@@ -1,25 +1,32 @@
-Slim-project
+Api Skeleton based on Slim
 ===========================================
 
-使用slim框架和composer搭建一个通用的能满足日常开发的php框架，用于api后台，没有包含模板渲染。
+用于快速开发api后台的php代码骨架，基于Slim，使用composer引入常用组件。
 
-## Framework
+## 包含组件
+
+### Framework
 
 Slim: <https://github.com/slimphp/slim>
 
-## Database
+### Database
 
 PDO: <http://php.net/manual/en/book.pdo.php>
 
-## Redis
+### Redis
 
 Predis: <https://github.com/nrk/predis>
 
-## Log
+### Log
 
 monolog: <https://github.com/Seldaek/monolog>
 
-
-## MQ
+### MQ
 
 php-resque: <https://github.com/chrisboulton/php-resque>
+
+## 使用
+
+```shell
+$ composer create-project ptcx/fapi-skeleton [app-name]
+```
