@@ -40,7 +40,7 @@ class Initializer
         $routeDir = Config::APP_BASE_PATH . '/routes/';
         $routeFiles = glob($routeDir . '*.php');
 
-        self::addAppMiddleware($app);
+        $this->addAppMiddleware($app);
 
         foreach ($routeFiles as $routeFile) {
             require $routeFile;
