@@ -22,7 +22,7 @@ class Test extends ScriptBase
 
     public function run($params)
     {
-        var_dump($params); echo "\n";
+        var_dump($params);
     }
 }
 ```
