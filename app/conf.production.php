@@ -34,4 +34,8 @@ return [
     'resque' => [
         'server' => 'localhost:6379',
     ],
+
+    'view' => [
+        'path' => \App\Config\Config::APP_BASE_PATH . '/view',
+    ],
 ];

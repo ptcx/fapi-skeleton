@@ -21,6 +21,25 @@ class HelloController extends Controller
     }
 
     /**
+     * hello page
+     *
+     * @param  \Slim\Http\Request    $request  PSR7 request
+     * @param  \Slim\Http\Response   $response PSR7 response
+     * @param  array                 $args
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function helloPage($request, $response, $args)
+    {
+        $view = $this->ci->get('view');
+
+        return $view->render($response, '/hello/page.html.php', [
+            'title' => 'hello page',
+            'body' => $this->helloService->getHello(),
+        ]);
+    }
+
+    /**
      * hello api
      *
      * @param  \Slim\Http\Request    $request  PSR7 request

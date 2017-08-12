@@ -7,6 +7,7 @@ use App\Providers\LogProvider;
 use App\Providers\PDOProvider;
 use App\Providers\RedisProvider;
 use App\Providers\ResqueProvider;
+use App\Providers\ViewProvider;
 
 class ProvidersConfig
 {
@@ -23,6 +24,7 @@ class ProvidersConfig
             ResqueProvider::class,
             PDOProvider::class,
             LogProvider::class,
+            ViewProvider::class,
         ];
     }
 

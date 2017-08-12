@@ -1,6 +1,6 @@
 {
     "name": "ptcx/fapi-skeleton",
-    "description": "A php application skeleton for api backend development based on Slim Framework",
+    "description": "A php application skeleton for web backend development based on Slim Framework",
     "authors": [
         {
             "name": "ptcx",
@@ -12,7 +12,8 @@
         "slim/slim": "^3.0",
         "predis/predis": "^1.1",
         "monolog/monolog": "^1.23",
-        "chrisboulton/php-resque": "1.2.x"
+        "chrisboulton/php-resque": "1.2.x",
+        "slim/php-view": "^2.2"
     },
     "autoload": {
         "psr-4": {"App\\": "app/"}
